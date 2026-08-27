@@ -1,0 +1,1 @@
+# Veez Store Django Project

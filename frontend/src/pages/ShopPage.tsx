@@ -15,6 +15,15 @@ export default function ShopPage() {
   const [selectedCategory, setSelectedCategory] = useState('')
   const [priceRange, setPriceRange] = useState([0, 1000000])
 
+  const filteredProducts = products.filter((product) => {
+    const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                         product.description.toLowerCase().includes(searchQuery.toLowerCase())
+    const matchesCategory = !selectedCategory || product.category.id === parseInt(selectedCategory)
+    const price = parseFloat(product.current_price)
+    const matchesPrice = price >= priceRange[0] && price <= priceRange[1]
+    return matchesSearch && matchesCategory && matchesPrice
+  })
+
   useEffect(() => {
     const fetchData = async () => {
       try {

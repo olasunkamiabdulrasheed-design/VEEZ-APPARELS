@@ -91,3 +91,31 @@ export default function OrderTrackingPage() {
           </div>
         </section>
       )}
+
+      {/* Order Details */}
+      {order && (
+        <section className="py-12">
+          <div className="container-safe max-w-4xl">
+            <div className="bg-white rounded-lg border p-8 shadow-sm">
+              <div className="mb-8 pb-8 border-b">
+                <h2 className="text-2xl font-bold mb-2">Order {order.order_number}</h2>
+                <p className="text-veez-gray-600">Reference: {order.reference}</p>
+              </div>
+
+              {/* Status Badges */}
+              <div className="mb-8 pb-8 border-b">
+                <p className="text-sm font-semibold text-veez-gray-600 mb-2">Status</p>
+                <div className="flex gap-2 flex-wrap">
+                  <span className={`px-4 py-2 rounded-full text-sm font-semibold ${
+                    order.order_status === 'delivered' 
+                      ? 'bg-green-100 text-green-700'
+                      : order.order_status === 'shipped'
+                      ? 'bg-blue-100 text-blue-700'
+                      : order.order_status === 'processing'
+                      ? 'bg-yellow-100 text-yellow-700'
+                      : 'bg-gray-100 text-gray-700'
+                  }`}>
+                    {order.order_status.charAt(0).toUpperCase() + order.order_status.slice(1)}
+                  </span>
+                </div>
+              </div>

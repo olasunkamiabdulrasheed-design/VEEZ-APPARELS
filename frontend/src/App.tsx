@@ -11,6 +11,10 @@ import AppointmentsPage from '@/pages/AppointmentsPage'
 import WeddingPage from '@/pages/WeddingPage'
 import OrderTrackingPage from '@/pages/OrderTrackingPage'
 import NotFoundPage from '@/pages/NotFoundPage'
+import LoginPage from '@/pages/LoginPage'
+import RegisterPage from '@/pages/RegisterPage'
+import AccountPage from '@/pages/AccountPage'
+import WishlistPage from '@/pages/WishlistPage'
 
 function App() {
   return (
@@ -28,6 +32,10 @@ function App() {
             <Route path="/appointments" element={<AppointmentsPage />} />
             <Route path="/wedding" element={<WeddingPage />} />
             <Route path="/orders/:reference" element={<OrderTrackingPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/account" element={<AccountPage />} />
+            <Route path="/wishlist" element={<WishlistPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>

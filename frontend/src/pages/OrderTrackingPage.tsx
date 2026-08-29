@@ -119,3 +119,24 @@ export default function OrderTrackingPage() {
                   </span>
                 </div>
               </div>
+
+              {/* Order Items */}
+              <div className="mb-8 pb-8 border-b">
+                <h3 className="text-lg font-semibold mb-4">Order Items</h3>
+                <div className="space-y-3">
+                  {order.items.map((item, i) => (
+                    <div key={i} className="flex justify-between items-start p-4 bg-veez-gray-50 rounded">
+                      <div>
+                        <p className="font-semibold">{item.product_name_snapshot}</p>
+                        {item.size_snapshot && (
+                          <p className="text-sm text-veez-gray-600">
+                            {item.size_snapshot} / {item.colour_snapshot}
+                          </p>
+                        )}
+                        <p className="text-sm text-veez-gray-600">Quantity: {item.quantity}</p>
+                      </div>
+                      <p className="font-semibold">{formatCurrency(item.subtotal)}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>

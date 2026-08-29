@@ -73,3 +73,21 @@ export default function OrderTrackingPage() {
           </form>
         </div>
       </section>
+
+      {/* No Results */}
+      {searched && !order && (
+        <section className="py-12">
+          <div className="container-safe max-w-2xl">
+            <div className="bg-white rounded-lg border p-8 text-center">
+              <PackageOpen className="w-12 h-12 mx-auto mb-4 text-veez-gray-400" />
+              <h2 className="text-2xl font-bold mb-2">Order Not Found</h2>
+              <p className="text-veez-gray-600 mb-6">
+                We couldn't find an order with that reference number. Please check and try again.
+              </p>
+              <Button variant="secondary" onClick={() => { setSearched(false); setReferenceNumber('') }}>
+                Search Again
+              </Button>
+            </div>
+          </div>
+        </section>
+      )}

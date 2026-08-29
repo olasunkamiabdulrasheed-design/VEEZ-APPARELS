@@ -89,3 +89,26 @@ export default function WeddingPage() {
           )}
         </div>
       </section>
+
+      {/* CTA Section */}
+      <section className="py-16">
+        <div className="container-safe">
+          <div className="max-w-2xl mx-auto bg-veez-black text-white rounded-lg p-12 text-center">
+            <h2 className="text-3xl font-bold mb-4">Need Something Special?</h2>
+            <p className="text-veez-gray-300 mb-8">
+              Can't find exactly what you're looking for? Let our design team create a custom wedding outfit just for you.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/bespoke">
+                <Button variant="secondary">Design Custom Outfit</Button>
+              </Link>
+              <Link to="/appointments">
+                <Button variant="ghost">Book Consultation</Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}

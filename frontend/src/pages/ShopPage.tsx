@@ -4,12 +4,16 @@ import ProductCard from '@/components/products/ProductCard'
 import { Product, Category } from '@/types'
 import { api } from '@/services/api'
 import { SkeletonGrid } from '@/components/ui/Loading'
+import Input from '@/components/ui/Input'
 
 export default function ShopPage() {
   const [searchParams] = useSearchParams()
   const [products, setProducts] = useState<Product[]>([])
   const [categories, setCategories] = useState<Category[]>([])
   const [loading, setLoading] = useState(true)
+  const [searchQuery, setSearchQuery] = useState('')
+  const [selectedCategory, setSelectedCategory] = useState('')
+  const [priceRange, setPriceRange] = useState([0, 1000000])
 
   useEffect(() => {
     const fetchData = async () => {

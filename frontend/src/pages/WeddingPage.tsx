@@ -69,3 +69,23 @@ export default function WeddingPage() {
           </div>
         </div>
       </section>
+
+      {/* Wedding Collection */}
+      <section className="py-16 bg-veez-gray-50">
+        <div className="container-safe">
+          <h2 className="text-4xl font-bold text-center mb-12">Wedding Collection</h2>
+          {loading ? (
+            <SkeletonGrid count={6} />
+          ) : products.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {products.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-lg text-veez-gray-600">No products found in wedding collection</p>
+            </div>
+          )}
+        </div>
+      </section>

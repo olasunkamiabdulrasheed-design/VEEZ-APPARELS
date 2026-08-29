@@ -100,15 +100,26 @@ export default function ShopPage() {
             </div>
           </div>
 
-        {loading ? (
-          <SkeletonGrid count={12} />
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
+          {/* Products Grid */}
+          <div className="md:col-span-3">
+            <p className="text-sm text-veez-gray-600 mb-4">
+              Showing {filteredProducts.length} of {products.length} products
+            </p>
+            {loading ? (
+              <SkeletonGrid count={12} />
+            ) : filteredProducts.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {filteredProducts.map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12">
+                <p className="text-lg text-veez-gray-600">No products match your filters</p>
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
     </div>
   )

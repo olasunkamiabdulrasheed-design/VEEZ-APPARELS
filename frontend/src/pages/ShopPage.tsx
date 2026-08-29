@@ -49,6 +49,57 @@ export default function ShopPage() {
       <div className="container-safe py-8">
         <h1 className="text-4xl font-bold mb-8">Shop All Products</h1>
 
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Filters Sidebar */}
+          <div className="md:col-span-1">
+            <div className="space-y-6">
+              {/* Search */}
+              <div>
+                <h3 className="font-semibold mb-3">Search</h3>
+                <Input
+                  placeholder="Search products..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+              </div>
+
+              {/* Category Filter */}
+              <div>
+                <h3 className="font-semibold mb-3">Category</h3>
+                <select
+                  value={selectedCategory}
+                  onChange={(e) => setSelectedCategory(e.target.value)}
+                  className="w-full px-3 py-2 border border-veez-gray-300 rounded text-sm"
+                >
+                  <option value="">All Categories</option>
+                  {categories.map((cat) => (
+                    <option key={cat.id} value={cat.id}>
+                      {cat.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Price Filter */}
+              <div>
+                <h3 className="font-semibold mb-3">Price Range</h3>
+                <div className="space-y-2">
+                  <input
+                    type="range"
+                    min="0"
+                    max="1000000"
+                    value={priceRange[1]}
+                    onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
+                    className="w-full"
+                  />
+                  <p className="text-sm text-veez-gray-600">
+                    ₦0 - ₦{priceRange[1].toLocaleString()}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
         {loading ? (
           <SkeletonGrid count={12} />
         ) : (

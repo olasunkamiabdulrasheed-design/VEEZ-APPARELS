@@ -140,3 +140,41 @@ export default function OrderTrackingPage() {
                   ))}
                 </div>
               </div>
+
+              {/* Delivery Information */}
+              <div className="mb-8 pb-8 border-b">
+                <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                  <MapPin className="w-5 h-5" />
+                  Delivery Address
+                </h3>
+                <p className="text-veez-gray-700">
+                  {order.delivery_address}<br />
+                  {order.delivery_city}, {order.delivery_state}<br />
+                  {order.delivery_country}
+                </p>
+              </div>
+
+              {/* Order Totals */}
+              <div className="text-right">
+                <div className="space-y-2 mb-4">
+                  <div className="flex justify-between">
+                    <span>Subtotal</span>
+                    <span>{formatCurrency(order.subtotal)}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Delivery Fee</span>
+                    <span>{formatCurrency(order.delivery_fee)}</span>
+                  </div>
+                  <div className="border-t pt-2 flex justify-between text-lg font-bold">
+                    <span>Total</span>
+                    <span>{formatCurrency(order.total)}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+    </div>
+  )
+}

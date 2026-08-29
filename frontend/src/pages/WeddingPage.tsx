@@ -1,4 +1,4 @@
-import { Heart, Sparkles } from 'lucide-react'
+import { Heart, Sparkles, Star, Users, Gift } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import ProductCard from '@/components/products/ProductCard'
@@ -38,5 +38,34 @@ export default function WeddingPage() {
           <p className="text-xl text-veez-gray-300 max-w-2xl mx-auto">
             Look absolutely stunning on your special day
           </p>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-16">
+        <div className="container-safe">
+          <h2 className="text-4xl font-bold text-center mb-12">Why Choose Veez for Your Wedding</h2>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <Sparkles className="w-12 h-12 mx-auto mb-4 text-veez-gold" />
+              <h3 className="font-semibold mb-2">Premium Quality</h3>
+              <p className="text-veez-gray-600 text-sm">Finest fabrics and impeccable craftsmanship</p>
+            </div>
+            <div className="text-center">
+              <Star className="w-12 h-12 mx-auto mb-4 text-veez-gold" />
+              <h3 className="font-semibold mb-2">Bespoke Service</h3>
+              <p className="text-veez-gray-600 text-sm">Custom-tailored to your perfect measurements</p>
+            </div>
+            <div className="text-center">
+              <Users className="w-12 h-12 mx-auto mb-4 text-veez-gold" />
+              <h3 className="font-semibold mb-2">Expert Team</h3>
+              <p className="text-veez-gray-600 text-sm">Professional styling and design consultation</p>
+            </div>
+            <div className="text-center">
+              <Gift className="w-12 h-12 mx-auto mb-4 text-veez-gold" />
+              <h3 className="font-semibold mb-2">Complete Look</h3>
+              <p className="text-veez-gray-600 text-sm">From attire to accessories, we have it all</p>
+            </div>
+          </div>
         </div>
       </section>
